@@ -1,0 +1,138 @@
+============================================================
+Time  2019/09/21 17:00:46 155 
+============================================================
+[2019/09/21 17:00:46 155] isr_1conn  2208 SYS_MSG_LOAD_CLOUD  
+[2019/09/21 17:00:46 155] isr_1conn  2229 SYS_MSG_REGCB_CLOUD param0 =   msp_status_cb  param1 =  func(1806b1b0) 
+[2019/09/21 17:00:46 155] isr_1conn  2229 SYS_MSG_REGCB_CLOUD param0 =   cloud_rslt_cb  param1 =  func(1806d710) 
+[2019/09/21 17:00:46 156] isr_1conn  2229 SYS_MSG_REGCB_CLOUD param0 =   cloud_err_cb  param1 =  func(1806d7f0) 
+[2019/09/21 17:00:46 156] isr_1conn  2229 SYS_MSG_REGCB_CLOUD param0 =   cloud_status_cb  param1 =  func(1806d8d0) 
+[2019/09/21 17:00:46 156] isr_1conn  1411 onesoc  
+[2019/09/21 17:00:46 156] isr_1conn  1412 ASR_CLOUD_MSG_SSB  
+[2019/09/21 17:00:46 156] isr_1conn  1427 isr_1conn  cloud_cisr1P1HHBHjJxXRdRcpyaa13H5bP1Jx0se  268436457  1517189298  
+[2019/09/21 17:00:46 157] isr_1conn  1497 req_lgi_id =  nil  
+[2019/09/21 17:00:46 157] isr_1conn  1498 not login!  
+[2019/09/21 17:00:46 157] isr_1conn  1631 nil  
+[2019/09/21 17:00:46 157] isr_1conn  1767 net_once_bytes  nil  
+[2019/09/21 17:00:46 157] isr_1conn  1772 need_encode  true  
+[2019/09/21 17:00:46 158] isr_1conn  1774 once bytes  122  
+[2019/09/21 17:00:46 158] isr_1conn  1798 User set url is   nil  
+[2019/09/21 17:00:46 158] transport  658  paramkvsport is   nil  
+[2019/09/21 17:00:46 159] transport  666  ns_enable=  1  
+[2019/09/21 17:00:46 159] transport  672  net.nettype=  standard  
+[2019/09/21 17:00:46 159] transport  711  url.full=  nil  
+[2019/09/21 17:00:46 159] transport  907  net type:  standard  
+[2019/09/21 17:00:46 159] transport  908  net operator:  def  
+[2019/09/21 17:00:46 160] transport  909  use proxy:  false  
+[2019/09/21 17:00:46 160] transport  1042 session.domain=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 160] transport  1043 url.host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 160] transport  1137 self.host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 165] network    88   ipfromenv ,  ipcache  dev.voicecloud.cn  def  nil  
+[2019/09/21 17:00:46 165] transport  1077 NAMESERVER START  
+[2019/09/21 17:00:46 165] transport  1080 name =   iat  
+[2019/09/21 17:00:46 165] ns         629  ntt=  standard  
+[2019/09/21 17:00:46 165] transport  1083 trans,ns_inprog =  0  
+[2019/09/21 17:00:46 165] ns         585  name server start  
+[2019/09/21 17:00:46 166] ns         586  ns_sub =   iat  
+[2019/09/21 17:00:46 166] ns         588  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 166] ns         479  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 166] ns         558  GET /sip/resolver?srand=0921170011.32 HTTP/1.1
+Host: hdns.openspeech.cn
+Connection: Keep-Alive
+X-Par: ver=1.3&appid=5d6e777f&operator=UNKNOW&nettype=STANDARD&cver=5.0.35.1173&svc=iat&host=dev.voicecloud.cn&sign=a3f3a45a50b637404501fbdb694e48f5
+User-Agent: iFLYCloud
+
+  
+[2019/09/21 17:00:46 166] ns         559  net_type =  standard  
+[2019/09/21 17:00:46 166] ns         560  cmwapascmnet =  
+[2019/09/21 17:00:46 166] ns         561  uniwapasuninet =  
+[2019/09/21 17:00:46 166] ns         562  ctwapasctnet =  
+[2019/09/21 17:00:46 166] ns         579  host=  hdns.openspeech.cn  
+[2019/09/21 17:00:46 166] network    242  gethostbyname  hdns.openspeech.cn  ns1  
+[2019/09/21 17:00:46 186] network    224  dns resp  0  ns1  
+[2019/09/21 17:00:46 186] ns         425  ns dns ok  42.62.116.35  
+[2019/09/21 17:00:46 187] ns         205  iplist not avail  
+[2019/09/21 17:00:46 187] ns         432  is_voicecloud_ip=  0  
+[2019/09/21 17:00:46 187] ns         439  ip_is_expected=  true  
+[2019/09/21 17:00:46 188] ns         447  ip_is_expected=  true  
+[2019/09/21 17:00:46 188] network    423  gethttpresp2  42.62.116.35  80  ns2  
+[2019/09/21 17:00:46 188] network    440  prot_type  tcp  
+[2019/09/21 17:00:46 208] transport  142  [dns] [1] response 42.62.116.34  
+[2019/09/21 17:00:46 208] transport  152  42  62  116  34  
+[2019/09/21 17:00:46 208] transport  203  ipv =  v4  
+[2019/09/21 17:00:46 210] transport  207  dns ip is v4  
+[2019/09/21 17:00:46 210] transport  181  iplist not avail  
+[2019/09/21 17:00:46 210] transport  247  no iplist now  
+[2019/09/21 17:00:46 211] network    93   iptoenv ,  ipcache  dev.voicecloud.cn  def  42.62.116.34  
+[2019/09/21 17:00:46 212] transport  291  dns cb start conn  
+[2019/09/21 17:00:46 212] transport  1276 [soc] connect   42.62.116.34  80  
+[2019/09/21 17:00:46 213] transport  1293 mspsoc.open,prot_type=  tcp  
+[2019/09/21 17:00:46 244] network    328  connected  ns2  
+[2019/09/21 17:00:46 246] network    331  send ok  273  ns2  
+[2019/09/21 17:00:46 248] transport  476  [soc] [1] connected  
+[2019/09/21 17:00:46 249] isr_1conn  367  transport connect ok  
+[2019/09/21 17:00:46 250] isr_1conn  1118 send ssb request  
+[2019/09/21 17:00:46 252] isr_1conn  833  lver:  nil  
+[2019/09/21 17:00:46 252] isr_1conn  838  cfg_ver:  nil  
+[2019/09/21 17:00:46 253] isr_1conn  859  send_lgi_auth_id =  nil  
+[2019/09/21 17:00:46 253] transport  1333 build http request.  
+[2019/09/21 17:00:46 254] transport  1433 POST /msp.do HTTP/1.1
+Host: dev.voicecloud.cn
+Content-Type: multipart/mixed;boundary=--
+Content-Length: 507
+User-Agent: iFLYCloud
+Cache-Control: no-cache
+Accept: */*
+
+----
+CL:182
+CT:text/plain
+
+ver=MSSP+0%2E9&sub=iat&cmd=ssb&ssm=1&auf=audio%2FL16%3Brate%3D16000&cver=5%2E0%2E35%2E1173&net%5Ftype=standard&csid=cisr1P1HHBHjJxXRdRcpyaa13H5bP1Jx0se&key=0c4G4KJ85svIxHaGfXj0FTVw==
+----
+CL:56
+CT:text/appinfo
+CE:gzip,encrypt/0.2
+
+pÙgˇ?\ÑòÅx{|~ÉÅy{{xÜyÑ  
+[2019/09/21 17:00:46 255] transport  1753 msg:release()  
+[2019/09/21 17:00:46 255] transport  506  [soc] [1] send ok  682  
+[2019/09/21 17:00:46 282] network    340  readable  ns2  
+[2019/09/21 17:00:46 289] network    344  HTTP/1.1 200 OK
+Date: Sat, 21 Sep 2019 09:00:46 GMT
+Content-Type: application/json
+Content-Length: 311
+Connection: keep-alive
+Server: iflytek/hdns
+
+{"dns":[{"host":"dev.voicecloud.cn","sip":[{"svc":"iat","ips":[{"ip":"42.62.42.10","port":1028,"idc":"dx"},{"ip":"42.62.42.18","port":80,"idc":"dx"}],"ttl":6000,"compel":0}]}],"default":[{"host":"dev.voicecloud.cn","sip":[{"svc":"iat","ips":[{"ip":"42.62.42.18","port":80,"idc":"dx"}],"ttl":6000,"compel":0}]}]}  
+[2019/09/21 17:00:46 290] ns         256  name server http resp  table(18027920) 0  udata(18026dd8) 
+[2019/09/21 17:00:46 290] ns         269  ns response OK for this time!  
+[2019/09/21 17:00:46 290] ns         280  from_server=  iflytek/hdns  
+[2019/09/21 17:00:46 293] ns         363  compel :  0  
+[2019/09/21 17:00:46 293] ns         374  tick()=  83473653  
+[2019/09/21 17:00:46 293] ns         378  tick()mod=  83473653  
+[2019/09/21 17:00:46 293] ns         379  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 294] ns         392  ns_host=  dev.voicecloud.cn  
+[2019/09/21 17:00:46 294] transport  1057 ns_ip =   42.62.42.10  
+[2019/09/21 17:00:46 294] transport  1058 ip_type =  assigned_iatdev.voicecloud.cn_host  
+[2019/09/21 17:00:46 294] ns         658  no data in ns_q  
+[2019/09/21 17:00:46 294] ns         659  conti_ns,ns_inprog =   1  
+[2019/09/21 17:00:46 300] transport  518  [soc] [1] readable  
+[2019/09/21 17:00:46 301] transport  1706 HTTP/1.1 200 OK
+Content-Type: text/plain
+Content-Length: 118
+X-Req-Date: 2019/09/21 17:00:46 267
+CL: 118
+X-Res-Date: 2019/09/21 17:00:46 271
+
+ver=MSSP+0%2E9&ret=10407&cver=5%2E0%2E35%2E1173&key=0dbW6T3ja35zLCNXD2XhBIiRPFVFewCUuHfQTsPrJCcqCcacJAk0EnHXWE1vXpQ^dH  
+[2019/09/21 17:00:46 301] transport  1452 a_complete_httpmessage  200  
+[2019/09/21 17:00:46 301] transport  1562 is_update  true  
+[2019/09/21 17:00:46 302] transport  1566 port updated  80  
+[2019/09/21 17:00:46 302] transport  1568 switch  80  
+[2019/09/21 17:00:46 302] isr_1conn  399  [trans] [isr_1conncisr1P1HHBHjJxXRdRcpyaa13H5bP1Jx0se] readable  
+[2019/09/21 17:00:46 302] isr_1conn  438  MSS:bad response:10407  
+[2019/09/21 17:00:46 302] isr_1conn  441  bad sid =   iat000194bd@dx16d530d573c6f13762  
+[2019/09/21 17:00:46 351] isr_1conn  2034 ASR_CLOUD_MSG_SSE  
+[2019/09/21 17:00:46 353] isr_1conn  1276 isr_1conn session info  
+[2019/09/21 17:00:46 357] isr_1conn  2177 session finished! ret =   10407  

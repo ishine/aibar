@@ -1,0 +1,37 @@
+﻿README for Linux SDK
+-----------------------
+
+==============================================================
+只想要了解aiui SDK如何使用的开发者，仅关注aiui_sample示例即可
+==============================================================
+
+
+目录结构说明
+
+samples：
+|-- aiui_sample （AIUI示例，展示如何使用aiui sdk进行文本语义，语音语义，以及动态上传资源）
+
+|-- asr_sample（语音识别示例）
+
+|-- iat_sample（语音听写示例）
+
+|-- ise_sample（语音评测示例）
+
+|-- tts_sample（语音合成示例）
+
+|-- iat_record_sample（录音听写示例）
+
+	
+libs：
+|-- x86
+	|-- libmsc.so, libaiui.so（32位动态库）
+|-- x64
+	|-- libmsc.so, libaiui.so（64位动态库）
+	
+PS: 该压缩包里面自带的libmsc.so是针对非aiui_sample使用的，aiui_sample在不开ivw唤醒时是不需要用到libmsc.so的，如果使用aiui_sample时，想要打开ivw唤醒，需要自行下载支持唤醒的libmsc.so以及对应的资源文件，libmsc.so下载后替换libs下面现有的同名文件，关于aiui_sample具体如何使用ivw唤醒，请参考aiui_sample下面的readme文档。
+
+include:
+	SDK 需要用到的头文件
+	
+bin:
+	非aiui_sample程序运行目录，因为该压缩包主要是aiui demo示例，所以aiui_sample的程序执行目录有所不同。

@@ -1,0 +1,3 @@
+/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/samples/demo/build/CMakeFiles/CMakeTmp/CMakeFiles/edit_cache.dir
+/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/samples/demo/build/CMakeFiles/CMakeTmp/CMakeFiles/rebuild_cache.dir
+/home/kevin/intelligentvoiceordering/demo_aiui_iat_tts/samples/demo/build/CMakeFiles/CMakeTmp/CMakeFiles/cmTC_b072c.dir
