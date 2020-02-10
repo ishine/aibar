@@ -139,4 +139,5 @@ build/objs/demo.o: src/./demo.cpp /usr/include/stdc-predef.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/string.h \
- src/./iat_online.h src/./tts_offline.h src/./speech_recognizer.h
+ /usr/include/assert.h src/./iat_online.h src/./tts_offline.h \
+ src/./speech_recognizer.h

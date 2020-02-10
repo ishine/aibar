@@ -120,7 +120,8 @@ int playSound(const char* filepath)
 
     // cin >> num;
 
-    while (0==strcmp(msgFromROS.cmd,"working"))
+    // while (0==strcmp(msgFromROS.cmd,"working"))
+    while(1)
     {
         ret = fread(buffer, 1, size, fp);
         if(ret == 0)

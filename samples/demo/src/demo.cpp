@@ -20,7 +20,7 @@
 #include "demo.h"
 // #include "fifo.h"
 #include <pthread.h>
-
+#include <assert.h>
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -71,22 +71,22 @@ const char * Response_2_noSound[]  	=
  */
 class EntranceGuard{
 public:   
-	const char* keyTemperature = "temperature:";
+	char Json[512] = "{\"name\":'hebin',\"temperature\":36.9}";
+	void generateResp(string& s){
+		this->tempProcess();
+		if(this->tempFloat <= 37.3)
+			s = this->tempStr + this->normalRespTail;
+		else
+			s = this->tempStr + this->warningRespTail;
+	}
 
-	char Json[100] = "";
-    char tempChar[10] = "";
-	float tempFloat;
-	string tempStr = "";
-
+private:
 	void tempProcess(){
 		this->extract_Json(this->keyTemperature, 
 					this->Json, 
 					this->tempChar);
-		this->tempConvert();
-		cout << ">> tempStr: " << tempStr << endl;
+		this->tempChar2Str();	
 	}
-
-private:
 	void extract_Json(const char* key, char* json, char* dest){
 		char* start = NULL;
 		char* end   = NULL;
@@ -94,18 +94,22 @@ private:
 		if(strstr(json, key)!=NULL){
 			start = strstr(json, key);
 			start += strlen(key);  
-			for(end = start; *end != '\'' && *end!='}' && *end!='\0'; ++end);
+			for(end = start; *end != '\'' && *end!='}' && *end!=',' && *end!='\0'; ++end);
 			memcpy(dest, start, end-start);
 			dest[end-start] = 0;
 		}
 	}
 	/** Example：tempChar("36.8") -> Chinese(三十六点八摄氏度) */
-    void tempConvert(){
+    void tempChar2Str(){
 		this->tempStr = "三十";
+		assert(strcmp(this->tempChar,""));
 		this->tempFloat = atof(this->tempChar);
+		assert(this->tempFloat > 30.0f && this->tempFloat < 40.0f);
+		cout << left << setw(16) <<"\n>> tempFloat: " << this->tempFloat << endl;
         int gewei = (int(this->tempFloat * 10) % 100) / 10;
         int xiaoshu = int(this->tempFloat * 10) % 10;
 		this->tempStr += digit2Char(gewei) + "点" + digit2Char(xiaoshu) + "摄氏度";
+		cout << left << setw(15) << ">> tempStr: " << this->tempStr << endl;
     }
     string digit2Char(int n){
         switch(n)
@@ -121,9 +125,17 @@ private:
         case 8: return "八"; break;
         case 9: return "九"; break; 
 
-        default: return ""; break; 
+        default: return "零"; break; 
     	}
 	}
+
+private:
+	const char* keyTemperature = "\"temperature\":";
+	const string normalRespTail = "，体温正常，允许通行！";
+	const string warningRespTail = "，体温过高警告！";
+    char tempChar[10] = "";
+	float tempFloat;
+	string tempStr = "";
 };
 #endif 
 
@@ -730,7 +742,8 @@ void* _writeTofrontEnd(void* arg){
 void* _getTemperature(void *arg){
 
 	// const char *fifo_name = "../../../myfifo/werewolfLu_2_iFlytek";
-	const char *fifo_name = "../../../myfifo/entryInfo";
+	// const char *fifo_name = "../../../myfifo/entryInfo";
+	const char *fifo_name = "/home/aibar/tmp/entryInfo";
 	int open_mode = O_RDONLY;
 	char buffer[PIPE_BUF+1];
 	int bytes_read = 0; 
@@ -746,7 +759,7 @@ void* _getTemperature(void *arg){
 
 	string Resp;
 	while(1){
- 
+		
  		//read operation blocked, wait until ros:write_end.
 		bytes_read = read(pipe_fd_rd_entry, buffer, PIPE_BUF);
 
@@ -760,19 +773,12 @@ void* _getTemperature(void *arg){
 			buffer[bytes_read] = 0;
 			strcpy(entranceGuard.Json, buffer); 
 		}
+		// usleep(1000*10); //10ms 
+		cout << ">> Json: " << entranceGuard.Json << endl;
 
+		entranceGuard.generateResp(Resp);
+		cout << left << setw(15) << ">> Resp: " << Resp << endl;
 		
-		usleep(1000*3000); //10ms 
-
-		entranceGuard.tempProcess();
-
-		if(entranceGuard.tempFloat <= 37.3)
-			Resp = entranceGuard.tempStr + ",体温正常,允许通行！";
-		else
-			Resp = entranceGuard.tempStr + ",体温过高！";
-
-		cout << ">> Resp: " << Resp << endl;
-
         SpeechSynthesis((char*)Resp.data());
         playSound(wavpath);
 	}
