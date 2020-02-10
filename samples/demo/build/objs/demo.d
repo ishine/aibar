@@ -90,9 +90,19 @@ build/objs/demo.o: src/./demo.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/fcntl-linux.h \
  /usr/include/x86_64-linux-gnu/bits/uio.h \
  /usr/include/x86_64-linux-gnu/bits/stat.h \
- /usr/include/x86_64-linux-gnu/sys/stat.h /usr/include/c++/5/iostream \
- /usr/include/c++/5/ostream /usr/include/c++/5/ios \
- /usr/include/c++/5/bits/ios_base.h \
+ /usr/include/x86_64-linux-gnu/sys/stat.h \
+ /usr/include/x86_64-linux-gnu/sys/socket.h \
+ /usr/include/x86_64-linux-gnu/sys/uio.h \
+ /usr/include/x86_64-linux-gnu/bits/socket.h \
+ /usr/include/x86_64-linux-gnu/bits/socket_type.h \
+ /usr/include/x86_64-linux-gnu/bits/sockaddr.h \
+ /usr/include/x86_64-linux-gnu/asm/socket.h \
+ /usr/include/asm-generic/socket.h \
+ /usr/include/x86_64-linux-gnu/asm/sockios.h \
+ /usr/include/asm-generic/sockios.h \
+ /usr/include/x86_64-linux-gnu/sys/un.h /usr/include/string.h \
+ /usr/include/c++/5/iostream /usr/include/c++/5/ostream \
+ /usr/include/c++/5/ios /usr/include/c++/5/bits/ios_base.h \
  /usr/include/c++/5/bits/locale_classes.h \
  /usr/include/c++/5/bits/locale_classes.tcc \
  /usr/include/c++/5/system_error \
@@ -138,6 +148,5 @@ build/objs/demo.o: src/./demo.cpp /usr/include/stdc-predef.h \
  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
  /usr/include/linux/limits.h \
  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
- /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/string.h \
- /usr/include/assert.h src/./iat_online.h src/./tts_offline.h \
- src/./speech_recognizer.h
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h /usr/include/assert.h \
+ src/./iat_online.h src/./tts_offline.h src/./speech_recognizer.h

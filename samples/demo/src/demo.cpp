@@ -13,6 +13,8 @@
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/stat.h>
+#include <sys/socket.h>
+#include <sys/un.h>
 #include <iostream>
 #include <iomanip>
 #include "AIUITest.h"
@@ -63,7 +65,7 @@ const char * Response_2_noSound[]  	=
 	"我好像没有听见你说话"
 };
 
-// 门禁socket
+// 门禁 socket
 #define ENTRANCE_GUARD
 #ifdef ENTRANCE_GUARD
 /**
@@ -739,42 +741,38 @@ void* _writeTofrontEnd(void* arg){
 /*=========================================== ENTRANCE GUARD THREAD ==================================================
 --------------------------------------------------------------------------------------------------------------------*/
 #ifdef ENTRANCE_GUARD
+#define BUF_SIZE 1024
 void* _getTemperature(void *arg){
 
-	// const char *fifo_name = "../../../myfifo/werewolfLu_2_iFlytek";
-	// const char *fifo_name = "../../../myfifo/entryInfo";
-	const char *fifo_name = "/home/aibar/tmp/entryInfo";
-	int open_mode = O_RDONLY;
-	char buffer[PIPE_BUF+1];
-	int bytes_read = 0; 
-	//Empty the buffer
-	memset(buffer, '\0', sizeof(buffer));
-	//RD_ONLY & BLOCKING
-	cout << "# ENTRY MODE #\n" << "-Opening FIFO: entryInfo ..." << endl;
-	pipe_fd_rd_entry = open(fifo_name, open_mode);
-	if(pipe_fd_rd_entry == -1)   
-		cout << "-open entryInfo err !" << endl;
-	else 
-		cout << "-open entryInfo successfully!" << endl;
+	int sockfd;
+    char SOCK_PATH[108] = "/tmp/entryInfo.sock";
+    if((sockfd = socket(AF_UNIX, SOCK_STREAM, 0)) < 0){
+        perror("socket");
+        exit(EXIT_FAILURE);
+    }
+
+    struct sockaddr_un servaddr;
+    memset(&servaddr, 0, sizeof(servaddr));
+    servaddr.sun_family = AF_UNIX;
+    strcpy(servaddr.sun_path, SOCK_PATH);
+
+    if(connect(sockfd, (struct sockaddr* )&servaddr, sizeof(servaddr)) < 0){
+        perror("connect");
+        exit(EXIT_FAILURE);
+    }
+
+    char buf[BUF_SIZE + 1];
+    int nbuf;
 
 	string Resp;
 	while(1){
 		
- 		//read operation blocked, wait until ros:write_end.
-		bytes_read = read(pipe_fd_rd_entry, buffer, PIPE_BUF);
+ 		nbuf = recv(sockfd, buf, BUF_SIZE, 0);
+        buf[nbuf] = 0;
+		strcpy(entranceGuard.Json, buf); 
 
-		if(bytes_read==-1){
-			cout << "-pipe_fd_rd_entry: read err" << endl;
-			close(pipe_fd_rd_entry);
-			pipe_fd_rd_entry = open(fifo_name, open_mode);
-			if(pipe_fd_rd_entry == -1)   cout << "-pipe_fd_rd_entry: open err " << endl;
-		}
-		else if(bytes_read>0){
-			buffer[bytes_read] = 0;
-			strcpy(entranceGuard.Json, buffer); 
-		}
-		// usleep(1000*10); //10ms 
 		cout << ">> Json: " << entranceGuard.Json << endl;
+		// usleep(1000*10); //10ms 
 
 		entranceGuard.generateResp(Resp);
 		cout << left << setw(15) << ">> Resp: " << Resp << endl;
