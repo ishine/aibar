@@ -63,7 +63,7 @@ const char * Response_2_noSound[]  	=
 	"我好像没有听见你说话"
 };
 
-// 门禁
+// 门禁socket
 #define ENTRANCE_GUARD
 #ifdef ENTRANCE_GUARD
 /**
